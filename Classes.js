@@ -7,7 +7,7 @@ class MyClass{
             this.last=last;
         }
             present(){
-                return "Hello" +this.name
+                return "Hello " +this.name
             }
 }
 
@@ -33,6 +33,9 @@ class Mary extends MyClass{
 let mary2 = new Mary("Mary","Dove","GLB")
 console.log(mary2.show()) 
 console.log(mary2.lastName)
+
+console.log("added new line")
+
 
 /////////Function classes/////////////////////////////
 

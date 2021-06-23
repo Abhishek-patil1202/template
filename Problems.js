@@ -25,7 +25,11 @@ const fizzBuzz = num => {
     }
   }
 }
-fizzBuzz(15)
+
+
+
+
+fizzBuzz(15 +"ne branch creacted")
 console.log("//////////////////////////")
 ////////////////////////////////////////
 function findVowels(str){
