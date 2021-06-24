@@ -6,6 +6,9 @@ const obj = { first: 'Jane', last: 'Doe' };
 const {first:f, last:l} = obj;
 
 console.log(f,l)  // f = 'Jane'; l = 'Doe'
+
+console.log(f,l)  // f = 'Jane'; l = 'Doe'
+
    
 /// Array destructuring 
 const destructuringArray= [12,"b",'c'];
