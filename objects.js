@@ -1,3 +1,63 @@
+
+    ////Simple Object
+var person = {
+  firstName: "John",
+  lastName : "Doe git push ",
+  id       : 5566,
+  city:"gulbarga",
+
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  },
+
+   City(){
+       return `the city name ${this.city}` 
+   },
+
+   get myProfile(){
+       return this.firstName
+   },
+
+   set lang(lang){
+     this.language = lang
+   }
+   
+};
+
+function sayHi() {
+   return  'Hello, my name is'+this.firstName
+}
+// person.sayHi = sayHi;
+// console.log(person.sayHi())
+
+// console.log(person.City())
+
+// console.log(person.fullName())
+
+// console.log(person.myProfile)
+
+
+////////////////////////OBJECT CONSTRUCTOR
+let Phone = function(category,brand,Ram,memory){
+    this.category=category,
+    this.brand=brand,
+    this.Ram = Ram,
+    this.memory= memory,
+    this.details =function() {
+  return this.brand + " " + this.memory;
+};
+}
+
+Phone.prototype.FullDetails = function() {
+  return this.brand + " " + this.memory;
+};
+
+let mobile= new Phone("Mobile","Apple",4,128)
+let mobile2= new Phone("Mobile","Samsung",8,256)
+mobile2.brand="MI"
+console.log(mobile2.details())
+
+//////////////////////
 var people = [{
         id: 1,
         name: "John",
@@ -6,71 +66,90 @@ var people = [{
     {
         id: 2,
         name: "Jane",
-        age: 31
+        age: 33
     },
-    {
-        id: 3,
-        name: "Peter",
-        age: 55
-    },
-    {
-        id: 2,
-        name: "Bob",
-        age: 32
-    }
 ];
-////////////// destructuring
-const user = {
-    id: 42,
-    is_verified: true
-};
-const {id, is_verified} = user;
-console.log("id-"+ id)
 
-
-/////////////array in list
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
-let text=""
-fruits.forEach(myFunction);
-
-function myFunction(value) {
-    text += "<li>" + value + "</li>";
-} 
-document.write(text);
-
-////////////////////object filter map 
 let names= people.map((val)=>val.name +"--" +val.age)
-console.log(names);
-
-var young = people.filter((val=>val.age < 32))
-console.log(young);
-
- let filternames= young.map((val)=> {
+var young = people.filter((val=>val.age > 32))
+let filternames= young.map((val)=> {
             return `<h2> ${val.name} </h2>`
         })
+///////////////////////////        
 
-document.write(filternames)
-console.log(filternames)
+// //////////destrcuring
+const {brand,category} = mobile2;
+// console.log(brand)
 
-document.getElementById("demo").innerHTML = filternames
-let ages = people.map((val)=>val.age)
-console.log(ages)
+/////////////////////////////////////call ,apply
+let personFullname = {
+    fullName: function(city,state) {
+    return this.name + "" + city + " "+ state
+     }
+  }
+
+ let newperson= {   
+    name:"abhishek",
+    last:"patil"
+}
+ let c = personFullname.fullName.call(newperson,"asa","second")
+ console.log(c)
+/////////////////////////////////////////Apply
+let personFullnameApply = {
+  fullName: function(city,state) {
+  return this.name + "" + city + " "+ state
+   }
+}
+
+let newpersonApply= {   
+  name:" abhishek",
+  last:"patil"
+}
+let ApplyEx = personFullnameApply.fullName.apply(newpersonApply,["first","second"])
+console.log(ApplyEx)
 
 
-///////////////////////////////object destructuring
-// const props = [
-//   { id: 1, name: 'Fizz'},
-//   { id: 2, name: 'Buzz'},
-//   { id: 3, name: 'FizzBuzz'}
-// ];
+////////////////////////////////////
+const person = {
+   name:"person object",
+   video:["js","this","ahsjas"],
+   info() {
+       this.video.forEach(function (tag) {
+            console.log(this.name + tag)
+       },this)
+   },
 
-// const [{ name="fff" }] = props;
+}
+person.info()
+//////////////////////////////////////Getter
+const obj = {
+  log: ['a', 'b', 'c'],
+  get latest() {
+    if (this.log.length === 0) {
+      return undefined;
+    }
+    return this.log;
+  }
+};
 
-// console.log(name); // "FizzBuzz"
+console.log(obj.latest);
 
-// let person = {name: "Sarah", country: "Nigeria", job: "Developer"};
+//////////////////
+let f = function () {
+   this.a = 1;
+   this.b = 2;
+}
+let o = new f(); // {a: 1, b: 2}
 
-// let {name = "myName", friend = "Annie"} = person;
+// add properties in f function's prototype
+f.prototype.b = 3;          // B wont chnage
+f.prototype.c = 4;              
 
-console.log(name);//"Sarah"
-console.log(friend);//"Annie"
+o.a=20           
+console.log("a is " +o.a) 
+////////////////////////
+
+console.log("b is " +o.b)
+
+console.log("c is " +o.c)
+
