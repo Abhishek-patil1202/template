@@ -2,7 +2,11 @@
     ////Simple Object
 var person = {
   firstName: "John",
+<<<<<<< HEAD
   lastName : "Doe",
+=======
+  lastName : "Doe git push ",
+>>>>>>> acd1c710058d232ba73e54aaa6922e227811cfab
   id       : 5566,
   city:"gulbarga",
 
